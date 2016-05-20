@@ -21,7 +21,7 @@ jQuery.fn.meghadd = function(config){
       });
 
       for(var i=0; i < option.length; i++){
-        printOptions = printOptions + "<li class='megha-dd-item' data-value='" + option[i]['value'] + "'>" + option[i]['name'] + "</li>";
+        printOptions = printOptions + "<li class='megha-dd-item'><a href='#' data-value='" + option[i]['value'] + "' >" + option[i]['name'] + "</a></li>";
       }
 
       //hiding the original dd
@@ -33,6 +33,12 @@ jQuery.fn.meghadd = function(config){
   // drop down click event
   container.find('a.megha-dd-placeholder').on('click', function(e){
     e.preventDefault();
+    e.stopPropagation();
     $(this).parent().toggleClass('in');
-  })
+  });
+
+  $(document).click(function() {
+    $(".megha-dd-wrapper").removeClass('in');
+  });
+
 }

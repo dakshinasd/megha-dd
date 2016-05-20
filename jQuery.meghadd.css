@@ -17,6 +17,24 @@
   display: block;
   transition: all ease-in 0.2s;
   box-shadow: 0px 0px 3px #ddd;
+  position: relative;
+}
+
+.megha-dd-wrapper .megha-dd-placeholder:after{
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  content: "";
+  background-image: url(img/caret.png);
+  background-position: center 0;
+  background-repeat: no-repeat;
+}
+
+.megha-dd-wrapper.in .megha-dd-placeholder:after{
+  background-position: center -20px;
 }
 
 .megha-dd-wrapper a.megha-dd-placeholder:hover{
@@ -31,9 +49,12 @@
   top: 40px;
   background-color: #fff;
   margin: 0px;
-  padding: 5px 0;
+  padding: 0;
   z-index: 109;
   display: none;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .megha-dd-wrapper.in .megha-dd-items{
@@ -42,4 +63,14 @@
 
 .megha-dd-wrapper.in .megha-dd-items li.megha-dd-item{
   list-style: none;
+}
+
+.megha-dd-wrapper.in .megha-dd-items li.megha-dd-item a{
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  display: block;
+}
+
+.megha-dd-wrapper.in .megha-dd-items li.megha-dd-item:last-child a{
+  border-bottom: none;
 }
