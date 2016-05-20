@@ -1,0 +1,18 @@
+*{
+  font-family: sans-serif;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.container{
+  width: 600px;
+  margin: 0px auto;
+  padding-top: 40px;
+}
+
+.form-group{
+  margin-bottom: 20px;
+}

@@ -1,0 +1,45 @@
+.megha-dd-wrapper{
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: relative;
+}
+
+.megha-dd-wrapper a{
+  text-decoration: none;
+  color : #333;
+}
+
+.megha-dd-wrapper a.megha-dd-placeholder{
+  padding: 10px;
+  display: block;
+  transition: all ease-in 0.2s;
+  box-shadow: 0px 0px 3px #ddd;
+}
+
+.megha-dd-wrapper a.megha-dd-placeholder:hover{
+  box-shadow: 0px 0px 5px #ddd;
+}
+
+
+/*================================ 2.0 DROPDOWN ==============================*/
+.megha-dd-wrapper .megha-dd-items{
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  background-color: #fff;
+  margin: 0px;
+  padding: 5px 0;
+  z-index: 109;
+  display: none;
+}
+
+.megha-dd-wrapper.in .megha-dd-items{
+  display: block;
+}
+
+.megha-dd-wrapper.in .megha-dd-items li.megha-dd-item{
+  list-style: none;
+}

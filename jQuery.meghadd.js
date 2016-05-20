@@ -1,5 +1,7 @@
-jQuery.fn.meghadd = function(){
-  var el = $(this);
+jQuery.fn.meghadd = function(config){
+  var el        = $(this);
+  var container = el.parent();
+
   el.each(function(){
       var option = [],
           counter = 0,
@@ -26,7 +28,11 @@ jQuery.fn.meghadd = function(){
       el.css('display','none');
 
       $(this).parent().append('<div class="megha-dd-wrapper"><a class="megha-dd-placeholder" href="#">Hello</a><ul class="megha-dd-items">' + printOptions + '</ul></div>');
+  });
 
-      // console.log(option);
+  // drop down click event
+  container.find('a.megha-dd-placeholder').on('click', function(e){
+    e.preventDefault();
+    $(this).parent().toggleClass('in');
   })
 }
