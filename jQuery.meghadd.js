@@ -2,7 +2,8 @@ jQuery.fn.meghadd = function(){
   var el = $(this);
   el.each(function(){
       var option = [],
-          counter = 0;
+          counter = 0,
+          printOptions = "";
 
       //adding all the element into one array
       $(this).find('option').each(function(){
@@ -14,14 +15,18 @@ jQuery.fn.meghadd = function(){
             // attr : $(this).attr()
         };
 
-        counter++
+        counter++;
       });
+
+      for(var i=0; i < option.length; i++){
+        printOptions = printOptions + "<li class='megha-dd-item' data-value='" + option[i]['value'] + "'>" + option[i]['name'] + "</li>";
+      }
 
       //hiding the original dd
       el.css('display','none');
 
-      el.parent().append('<div class="megha-dd-wrapper"><a href="#">Hello</a></div>');
+      $(this).parent().append('<div class="megha-dd-wrapper"><a class="megha-dd-placeholder" href="#">Hello</a><ul class="megha-dd-items">' + printOptions + '</ul></div>');
 
-      console.log(option);
+      // console.log(option);
   })
 }
