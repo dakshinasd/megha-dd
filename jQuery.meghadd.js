@@ -1,6 +1,17 @@
 jQuery.fn.meghadd = function(config){
-  var el        = $(this);
-  var container = el.parent();
+  var el            = $(this);
+  var container     = el.parent();
+  var _conBaseText  = ""
+
+
+  //================ processing config values ====================//
+  if(config.baseText != undefined){
+    _conBaseText = config.baseText;
+  }
+  else{
+    _conBaseText = "Please select a value";
+  }
+  //============== EOF processing config values ==================//
 
   el.each(function(){
       var option = [],
@@ -27,7 +38,7 @@ jQuery.fn.meghadd = function(config){
       //hiding the original dd
       el.css('display','none');
 
-      $(this).parent().append('<div class="megha-dd-wrapper"><a class="megha-dd-placeholder" href="#">Hello</a><ul class="megha-dd-items">' + printOptions + '</ul></div>');
+      $(this).parent().append('<div class="megha-dd-wrapper"><a class="megha-dd-placeholder" href="#">' + _conBaseText + '</a><ul class="megha-dd-items">' + printOptions + '</ul></div>');
   });
 
   // drop down click event
@@ -35,6 +46,18 @@ jQuery.fn.meghadd = function(config){
     e.preventDefault();
     e.stopPropagation();
     $(this).parent().toggleClass('in');
+  });
+
+  //click on a dropdown item
+  $('.megha-dd-item').on('click', function(){
+    //remove selected class from other and add it to this one
+    $(this).addClass('selected').siblings().removeClass('selected');
+
+    // store selected text and values in variables
+    var selectedText  = $(this).text();
+    var selectedVal   = $(this).val();
+
+    $(this).closest('.megha-dd-items').siblings('.megha-dd-placeholder').text(selectedText);
   });
 
   $(document).click(function() {

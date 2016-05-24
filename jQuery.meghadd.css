@@ -75,3 +75,7 @@
 .megha-dd-wrapper.in .megha-dd-items li.megha-dd-item:last-child a{
   border-bottom: none;
 }
+
+.megha-dd-wrapper .megha-dd-item.selected{
+  background-color: #ececec;
+}
